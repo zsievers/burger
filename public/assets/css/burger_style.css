@@ -1,0 +1,19 @@
+.container {
+    width: 75%;
+}
+.jumbotron {
+    background-color: whitesmoke;
+    
+}
+
+.card {
+    border: none
+}
+
+#mainImg {
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+}
