@@ -5,26 +5,65 @@
         <h2>Eat-Dat-Burger</h2>
     </div>
 
+    {{!-- ORDER PLACED & READY TO BE DEVOURED --}}
     <div class="card-group">
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Order Ready</h5>
-                <p class="card-text">This needs to be a table to hold the order</p>
+            <h5 class="card-title">Ready to be Devoured</h5>
+                <div class="card-body">
                 
-            </div>
+
+                    {{#each burgers}}
+                    {{#unless this.devoured}}
+                    
+                    <p>
+                        {{this.burger_name}}
+                        
+                    </p>
+                    
+                    <form action="/updateOne" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="hidden" name="devoured" value="1">
+                        <button type="submit" class="btn btn-warning btn-sm">Order Ready</button>
+                    </form>
+                    
+                    
+                    {{/unless}}
+                    {{/each}}
+            
+                </div>
         </div>
+
+
+        {{!-- CREATE BURGER  --}}
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Place Your Order Here</h5>
-                <p class="card-text">This card will have text and a button to submit your order</p>
+            <h5 class="card-title">Place Your Order Here</h5>
+                <div class="card-body">
                 
-            </div>
+
+                <form class="create-update-form" action="/insertOne" method="POST">
+                    <div class="form-group">
+                        <input id="createOrder" name="burger_name" class="form-control form-control-sm" type="text">
+                        <button type="submit" class="btn btn-warning" id="addBurger">Submit Order</button>
+                    </div>
+                </form>
+
+                </div>
         </div>
+
+
+
+        {{!-- BURGERS THAT HAVE BEEN DEVOURED --}}
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Order Picked Up</h5>
-                <p class="card-text">This card will be a table that holds the devoured/picked up orders</p>
-                
+            <h5 class="card-title">Order Picked Up</h5>
+                <div class="card-body">
+
+                    {{#each burgers}}
+                    {{#if this.devoured}}
+                    <div class="devBurger">
+                        <p>{{this.burger_name}}</p>
+                    </div>
+                    {{/if}}
+                    {{/each}}
             </div>
         </div>
     </div>
