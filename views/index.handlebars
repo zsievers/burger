@@ -8,25 +8,23 @@
     {{!-- ORDER PLACED & READY TO BE DEVOURED --}}
     <div class="card-group">
         <div class="card">
-            <h5 class="card-title">Ready to be Devoured</h5>
+            <h5 class="card-title">Ready to be Picked Up</h5>
                 <div class="card-body">
                 
 
                     {{#each burgers}}
                     {{#unless this.devoured}}
                     
-                    <p>
+                    <li>
                         {{this.burger_name}}
-                        
-                    </p>
-                    
-                    <form action="/updateOne" method="POST">
+                        <form action="/updateOne" method="POST">
                         <input type="hidden" name="id" value="{{this.id}}">
                         <input type="hidden" name="devoured" value="1">
-                        <button type="submit" class="btn btn-warning btn-sm">Order Ready</button>
+                        <button type="submit" class="btn btn-warning">Pick Up Order</button>
                     </form>
-                    
-                    
+                        
+                    </li>
+                
                     {{/unless}}
                     {{/each}}
             
@@ -43,7 +41,7 @@
                 <form class="create-update-form" action="/insertOne" method="POST">
                     <div class="form-group">
                         <input id="createOrder" name="burger_name" class="form-control form-control-sm" type="text">
-                        <button type="submit" class="btn btn-warning" id="addBurger">Submit Order</button>
+                        <button type="submit" class="btn btn-warning" id="addBurger"><span class="fa fa-hamburger"></span>Submit Order</button>
                     </div>
                 </form>
 
@@ -60,7 +58,7 @@
                     {{#each burgers}}
                     {{#if this.devoured}}
                     <div class="devBurger">
-                        <p>{{this.burger_name}}</p>
+                        <li>{{this.burger_name}}</li>
                     </div>
                     {{/if}}
                     {{/each}}
