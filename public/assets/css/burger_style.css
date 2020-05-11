@@ -1,19 +1,44 @@
+body {
+    background-color: whitesmoke;
+    color: black;
+}
+
 .container {
-    width: 75%;
+    background-color: whitesmoke;
+    width: 85%;
 }
 .jumbotron {
     background-color: whitesmoke;
-    
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-family: 'Italianno', cursive;
 }
 
 .card {
-    border: none
+    background: whitesmoke;
+    border-style: solid;
+    border-width: 5px 2px;
+    border-color: tomato;
 }
 
 #mainImg {
-    width: 300px;
+    width: 250px;
 }
 
 h2 {
     text-align: center;
+    font-size: 70px;
 }
+
+.card-title {
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+li {
+    font-size: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
